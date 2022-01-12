@@ -8,9 +8,12 @@ main {
   flex-direction: column;
   justify-content: space-evenly;
   min-height: 720px;
+  position: relative;
 }
 
 form {
+  background-color: white;
+  border: 1px solid thistle;
   border-radius: 0.6rem;
   box-shadow: 0.6rem 0.3rem 0.3rem thistle;
   display: flex;
@@ -36,4 +39,12 @@ form button {
 
 form button:disabled {
   opacity: 0.6;
+}
+
+.loading {
+  color: #036B52;
+  font-size: 2.5rem;
+  inset: 0;
+  padding: 1rem;
+  position: absolute;
 }
