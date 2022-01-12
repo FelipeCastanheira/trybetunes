@@ -1,5 +1,6 @@
 import React from 'react';
 import trybeTunes from '../img/trybe-tunes.png';
+import { createUser } from '../services/userAPI';
 import './Login.css';
 
 class Login extends React.Component {
@@ -41,6 +42,7 @@ class Login extends React.Component {
             disabled={ isButtonDisabled }
             type="submit"
             data-testid="login-submit-button"
+            onClick={ async () => createUser({ name: loginName }) }
           >
             Entrar
           </button>
