@@ -14,11 +14,11 @@ class App extends React.Component {
       <Switch>
         <Route path="/album/:id" component={ Album } />
         <Route path="/favorites" component={ Favorites } />
-        <Route path="/notFound" component={ NotFound } />
-        <Route path="/profile" component={ Profile } />
-        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route exact path="/profile" component={ Profile } />
         <Route path="/search" component={ Search } />
-        <Route path="/" component={ Login } />
+        <Route exact path="/" component={ Login } />
+        <Route exact path="/profile/edit" component={ ProfileEdit } />
+        <Route component={ NotFound } />
       </Switch>
     );
   }

@@ -3,7 +3,9 @@ import React from 'react';
 class Profile extends React.Component {
   render() {
     return (
-      <div data-testid="page-profile">Profile</div>
+      <div data-testid="page-profile">
+        Profile
+      </div>
     );
   }
 }
