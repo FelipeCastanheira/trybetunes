@@ -1,0 +1,39 @@
+body {
+  background-color: #FAFAFA;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 720px;
+}
+
+form {
+  border-radius: 0.6rem;
+  box-shadow: 0.6rem 0.3rem 0.3rem thistle;
+  display: flex;
+  flex-direction: column;
+  padding: 89px;
+  width: 519px;
+}
+
+input {
+  border-color: thistle;
+  height: 1.7rem;
+  margin-bottom: 2rem;
+}
+
+form button {
+  background-color: #003BE5;
+  border: none;
+  border-radius: 0.1rem;
+  color: white;
+  cursor: pointer;
+  height: 1.7rem;
+}
+
+form button:disabled {
+  opacity: 0.6;
+}
