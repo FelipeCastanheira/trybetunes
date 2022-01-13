@@ -1,13 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import style from './Search.module.css';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 class Search extends React.Component {
   constructor() {
     super();
     this.state = {
       singerName: '',
+      artist: '',
       isButtonDisabled: true,
+      results: [],
+      showError: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,10 +26,25 @@ class Search extends React.Component {
     });
   }
 
+  handleClick = async () => {
+    const { singerName } = this.state;
+    const data = await searchAlbumsAPI(singerName);
+    const errorAlbum = data.length === 0;
+    this.setState({
+      singerName: '',
+      showError: errorAlbum,
+      artist: singerName,
+      results: data,
+    });
+  }
+
   render() {
     const {
       singerName,
       isButtonDisabled,
+      artist,
+      results,
+      showError,
     } = this.state;
     return (
       <div className={ style.search } data-testid="page-search">
@@ -46,11 +66,29 @@ class Search extends React.Component {
               disabled={ isButtonDisabled }
               data-testid="search-artist-button"
               type="button"
+              onClick={ this.handleClick }
             >
               Procurar
             </button>
           </form>
-          <div className={ style.results }>Resultado de álbuns de Artista X:</div>
+          <div className={ style.results }>
+            <h4>{`Resultado de álbuns de: ${artist}`}</h4>
+            {showError && <span>Nenhum álbum foi encontrado</span>}
+            <section>
+              {results
+                .map(({ artistName, collectionName, artworkUrl100, collectionId }) => (
+                  <Link
+                    key={ collectionId }
+                    to={ `album/${collectionId}` }
+                    data-testid={ `link-to-album-${collectionId}` }
+                  >
+                    <img src={ artworkUrl100 } alt={ collectionName } />
+                    <h5>{ collectionName }</h5>
+                    <h6>{ artistName }</h6>
+                  </Link>
+                ))}
+            </section>
+          </div>
         </section>
       </div>
     );

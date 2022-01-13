@@ -44,3 +44,9 @@
   flex: 1;
   min-height: 300px;
 }
+
+.results section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
