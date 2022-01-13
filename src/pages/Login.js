@@ -1,8 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import Loading from '../components/Loading';
+// import { Redirect } from 'react-router-dom';
+// import Loading from '../components/Loading';
+import NewUser from '../components/NewUser';
 import trybeTunes from '../img/trybe-tunes.png';
-import { createUser } from '../services/userAPI';
+// import { createUser } from '../services/userAPI';
 import './Login.css';
 
 class Login extends React.Component {
@@ -12,15 +13,16 @@ class Login extends React.Component {
       loginName: '',
       isButtonDisabled: true,
       isLoading: false,
-      goSearch: false,
+      // goSearch: false,
+      // results: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.removeLoading = this.removeLoading.bind(this);
+    // this.removeLoading = this.removeLoading.bind(this);
   }
 
-  componentWillUnmount() {
-    this.removeLoading();
-  }
+  // componentWillUnmount() {
+  //   this.removeLoading();
+  // }
 
   handleChange({ target }) {
     this.setState({ loginName: target.value }, () => {
@@ -31,19 +33,25 @@ class Login extends React.Component {
     });
   }
 
-  handleClick(object) {
-    this.setState({ isLoading: true }, async () => {
-      await createUser(object);
-      // this.setState({ isLoading: false });
-    });
-  }
+  // handleClick(event, object) {
+  //   // event.preventDefault();
+  //   this.setState({ isLoading: true }, async () => {
+  //     await createUser(object);
+  //     this.setState({ goSearch: true });
+  //   });
+  // }
 
-  removeLoading() {
-    this.setState({ isLoading: false, goSearch: true });
-  }
+  // removeLoading() {
+  //   this.setState({ isLoading: false, goSearch: true });
+  // }
 
   render() {
-    const { loginName, isButtonDisabled, isLoading, goSearch } = this.state;
+    const {
+      loginName,
+      isButtonDisabled,
+      isLoading,
+      // goSearch,
+    } = this.state;
     return (
       <main data-testid="page-login">
         <header>
@@ -62,13 +70,14 @@ class Login extends React.Component {
             disabled={ isButtonDisabled }
             type="submit"
             data-testid="login-submit-button"
-            onClick={ async () => this.handleClick({ name: loginName }) }
+            onClick={ () => this.setState({ isLoading: true }) }
+            // onClick={ async (event) => this.handleClick((event, { name: loginName })) }
           >
             Entrar
           </button>
         </form>
-        {isLoading && <Loading />}
-        {goSearch && <Redirect to="/search" />}
+        {isLoading && <NewUser person={ loginName } />}
+        {/* {goSearch && <Redirect to="/search" />} */}
       </main>
     );
   }
