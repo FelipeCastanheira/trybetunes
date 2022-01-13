@@ -19,6 +19,10 @@
   width: 7rem;
 }
 
+.search button:disabled {
+  opacity: 0.6;
+}
+
 .inputContainer {
   height: 2.2rem;
   position: relative;

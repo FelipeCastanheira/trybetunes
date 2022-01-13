@@ -1,5 +1,5 @@
 body {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
 .login {
@@ -29,7 +29,7 @@ body {
 }
 
 form button {
-  background-color: #003BE5;
+  background-color: #003be5;
   border: none;
   border-radius: 0.1rem;
   color: white;
@@ -42,7 +42,7 @@ form button {
 }
 
 .login .loading {
-  color: #036B52;
+  color: #036b52;
   font-size: 2.5rem;
   inset: 0;
   padding: 1rem;
