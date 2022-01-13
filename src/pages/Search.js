@@ -6,7 +6,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         Search
-        <Header />
+        <Header nav="search" />
       </div>
     );
   }

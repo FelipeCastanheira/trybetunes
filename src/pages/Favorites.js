@@ -6,7 +6,7 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         Favorites
-        <Header />
+        <Header nav="favorites" />
       </div>
     );
   }
