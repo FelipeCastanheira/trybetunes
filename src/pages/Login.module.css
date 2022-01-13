@@ -2,7 +2,7 @@ body {
   background-color: #FAFAFA;
 }
 
-main {
+.login {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@ main {
   position: relative;
 }
 
-form {
+.login form {
   background-color: white;
   border: 1px solid thistle;
   border-radius: 0.6rem;
@@ -22,7 +22,7 @@ form {
   width: 519px;
 }
 
-input {
+.login input {
   border-color: thistle;
   height: 1.7rem;
   margin-bottom: 2rem;
@@ -37,11 +37,11 @@ form button {
   height: 1.7rem;
 }
 
-form button:disabled {
+.login form button:disabled {
   opacity: 0.6;
 }
 
-.loading {
+.login .loading {
   color: #036B52;
   font-size: 2.5rem;
   inset: 0;

@@ -5,7 +5,7 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import avatar from '../img/avatar.png';
 import whiteLogo from '../img/white-logo.png';
-import './Header.css';
+import style from './Header.module.css';
 
 class Header extends React.Component {
   constructor() {
@@ -29,10 +29,10 @@ class Header extends React.Component {
     const { profileName, isLoading } = this.state;
     const { nav } = this.props;
     return (
-      <header data-testid="header-component">
-        <div className="row">
+      <header className={ style.header } data-testid="header-component">
+        <div className={ style.row }>
           <img src={ whiteLogo } alt="trybe tunes" />
-          <div className="user">
+          <div className={ style.user }>
             <img src={ avatar } alt="avatar" />
             { isLoading
               ? <Loading />
@@ -41,21 +41,21 @@ class Header extends React.Component {
         </div>
         <nav>
           <Link
-            className={ nav === 'search' ? 'green' : 'white' }
+            className={ nav === 'search' ? style.green : 'white' }
             data-testid="link-to-search"
             to="/search"
           >
             Pesquisa
           </Link>
           <Link
-            className={ nav === 'favorites' ? 'green' : 'white' }
+            className={ nav === 'favorites' ? style.green : 'white' }
             data-testid="link-to-favorites"
             to="/favorites"
           >
             Favoritas
           </Link>
           <Link
-            className={ nav === 'profile' ? 'green' : 'white' }
+            className={ nav === 'profile' ? style.green : 'white' }
             data-testid="link-to-profile"
             to="/profile"
           >

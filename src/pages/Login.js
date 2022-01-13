@@ -4,7 +4,7 @@ import React from 'react';
 import NewUser from '../components/NewUser';
 import trybeTunes from '../img/trybe-tunes.png';
 // import { createUser } from '../services/userAPI';
-import './Login.css';
+import style from './Login.module.css';
 
 class Login extends React.Component {
   constructor() {
@@ -53,11 +53,11 @@ class Login extends React.Component {
       // goSearch,
     } = this.state;
     return (
-      <main data-testid="page-login">
+      <main className={ style.login } data-testid="page-login">
         <header>
           <img src={ trybeTunes } alt="trybe-tunes" />
         </header>
-        <form>
+        <form className="login-form">
           <input
             type="text"
             value={ loginName }

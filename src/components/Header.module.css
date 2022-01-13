@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   flex-direction: column;
 }
@@ -30,7 +30,7 @@ header {
 
 .user img {
   height: 2rem;
-  margin: 0;
+  margin: 0 0 0 0.2rem;
   width: 2rem;
 }
 

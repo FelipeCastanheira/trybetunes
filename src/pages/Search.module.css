@@ -1,0 +1,42 @@
+.search section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.search form {
+  display: flex;
+  justify-content: center;
+  margin: 3rem auto;
+  min-width: 50rem;
+}
+
+.search button {
+  height: 2rem;
+  margin-left: 1rem;
+  width: 7rem;
+}
+
+.inputContainer {
+  height: 2.2rem;
+  position: relative;
+  width: 45%;
+}
+
+.inputContainer input {
+  height: 2rem;
+  width: 100%;
+}
+
+.inputContainer h3 {
+  position: absolute;
+  right: 5%;
+  top: 0;
+}
+
+.results {
+  flex: 1;
+  min-height: 300px;
+}
