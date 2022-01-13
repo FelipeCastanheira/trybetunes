@@ -8,7 +8,6 @@ class NewUser extends React.Component {
   constructor() {
     super();
     this.state = {
-      userList: [],
       isLoading: true,
     };
   }
@@ -19,13 +18,12 @@ class NewUser extends React.Component {
 
   newUser = async () => {
     const { person } = this.props;
-    const data = await createUser({ name: person });
-    this.setState({ userList: data.results, isLoading: false });
+    await createUser({ name: person });
+    this.setState({ isLoading: false });
   }
 
   render() {
-    const { userList, isLoading } = this.state;
-    console.log(userList);
+    const { isLoading } = this.state;
     return (
       <section className="new-user">
         { isLoading ? <Loading /> : <Redirect to="/search" />}
