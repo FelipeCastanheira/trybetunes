@@ -1,0 +1,11 @@
+.album main {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 600px;
+}
+
+.album aside img {
+  height: 13rem;
+  width: 13rem;
+}
