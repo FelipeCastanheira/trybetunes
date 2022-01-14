@@ -45,9 +45,8 @@
   min-height: 300px;
 }
 
-.results section{
+.results section {
   align-items: stretch;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: wrap;
 }
