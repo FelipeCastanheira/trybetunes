@@ -61,6 +61,7 @@ class Album extends React.Component {
                 trackId={ trackObject.trackId }
                 trackObject={ trackObject }
                 favoriteIds={ favoriteIds }
+                showCard
               />))}
           </section>
         </main>
