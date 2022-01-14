@@ -28,12 +28,12 @@ class Album extends React.Component {
     const artistData = data.find(({ kind }) => kind !== 'song');
     const { artistName, artworkUrl100, collectionName } = artistData;
     const songs = data.filter(({ kind }) => kind === 'song');
-    const albumArray = songs.map(({ trackName, previewUrl }) => {
-      const song = { trackName, previewUrl };
-      return song;
-    });
+    // const albumArray = songs.map(({ trackName, previewUrl }) => {
+    //   const song = { trackName, previewUrl };
+    //   return song;
+    // });
     this.setState({
-      musicList: [...albumArray],
+      musicList: songs,
       albumImg: artworkUrl100,
       albumName: collectionName,
       artistName,
@@ -52,11 +52,13 @@ class Album extends React.Component {
             <h5 data-testid="artist-name">{ artistName }</h5>
           </aside>
           <section>
-            {musicList.map(({ previewUrl, trackName }) => (
+            {musicList.map((trackObject) => (
               <MusicCard
-                key={ previewUrl }
-                previewUrl={ previewUrl }
-                trackName={ trackName }
+                key={ trackObject.trackId }
+                previewUrl={ trackObject.previewUrl }
+                trackName={ trackObject.trackName }
+                trackId={ trackObject.trackId }
+                trackObject={ trackObject }
               />))}
           </section>
         </main>
