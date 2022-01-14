@@ -11,6 +11,11 @@ class MusicCard extends React.Component {
       isFavorite: false,
       isLoading: false,
     };
+    this.addFavorite = this.addFavorite.bind(this);
+  }
+
+  componentDidMount() {
+    this.addFavorite();
   }
 
   handleCheck = async () => {
@@ -24,6 +29,12 @@ class MusicCard extends React.Component {
       await addSong(trackObject);
       this.setState({ isLoading: false });
     }
+  }
+
+  addFavorite() {
+    const { favoriteIds, trackId } = this.props;
+    const isItFavotite = favoriteIds.some((id) => id === trackId);
+    this.setState({ isFavorite: isItFavotite });
   }
 
   render() {
@@ -56,6 +67,7 @@ MusicCard.propTypes = {
   previewUrl: propTypes.string,
   trackName: propTypes.string,
   trackId: propTypes.string,
+  favoriteIds: propTypes.arrayOf(propTypes.string),
 }.isRequired;
 
 export default MusicCard;

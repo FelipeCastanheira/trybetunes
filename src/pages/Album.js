@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import style from './Album.module.css';
 
 class Album extends React.Component {
@@ -13,6 +14,7 @@ class Album extends React.Component {
       albumImg: '',
       albumName: '',
       artistName: '',
+      favoriteIds: '',
     };
   }
 
@@ -28,20 +30,19 @@ class Album extends React.Component {
     const artistData = data.find(({ kind }) => kind !== 'song');
     const { artistName, artworkUrl100, collectionName } = artistData;
     const songs = data.filter(({ kind }) => kind === 'song');
-    // const albumArray = songs.map(({ trackName, previewUrl }) => {
-    //   const song = { trackName, previewUrl };
-    //   return song;
-    // });
+    const favorites = await getFavoriteSongs();
+    const favoriteIds = favorites.map(({ trackId }) => trackId);
     this.setState({
       musicList: songs,
       albumImg: artworkUrl100,
       albumName: collectionName,
       artistName,
+      favoriteIds,
     });
   }
 
   render() {
-    const { musicList, albumImg, albumName, artistName } = this.state;
+    const { musicList, albumImg, albumName, artistName, favoriteIds } = this.state;
     return (
       <div data-testid="page-album" className={ style.album }>
         <Header nav="Album" />
@@ -59,6 +60,7 @@ class Album extends React.Component {
                 trackName={ trackObject.trackName }
                 trackId={ trackObject.trackId }
                 trackObject={ trackObject }
+                favoriteIds={ favoriteIds }
               />))}
           </section>
         </main>
