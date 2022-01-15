@@ -18,6 +18,8 @@ class App extends React.Component {
           <Route exact path="/profile" component={ Profile } />
           <Route path="/search" component={ Search } />
           <Route exact path="/" component={ Login } />
+          {/* {A rota para o profile/edit recebe as props
+            para poder utilizar o history, a fim de redirecionar para o profile} */}
           <Route
             exact
             path="/profile/edit"

@@ -1,6 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import { Redirect } from 'react-router-dom';
 import { updateUser } from '../services/userAPI';
 import Loading from './Loading';
 
@@ -17,10 +15,8 @@ class UpdateUser extends React.Component {
   }
 
   updateUser = async () => {
-    // const { user, history } = this.props;
     await updateUser(user);
     this.setState({ isLoading: false });
-    // history.push('/profile');
   }
 
   render() {
@@ -32,9 +28,5 @@ class UpdateUser extends React.Component {
     );
   }
 }
-
-// UpdateUser.propTypes = {
-//   user: PropTypes.objectOf(PropTypes.string).isRequired,
-// };
 
 export default UpdateUser;

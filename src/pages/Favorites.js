@@ -26,6 +26,8 @@ class Favorites extends React.Component {
     const { favoriteIds, favorites } = this.state;
     return (
       <div data-testid="page-favorites">
+        {/* {Adicionei uma prop ao Header
+          para destacar (com CSS) o elemento referente à página atual} */}
         <Header nav="favorites" />
         <section>
           {favorites.map((trackObject) => (
