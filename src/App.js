@@ -18,7 +18,13 @@ class App extends React.Component {
           <Route exact path="/profile" component={ Profile } />
           <Route path="/search" component={ Search } />
           <Route exact path="/" component={ Login } />
-          <Route exact path="/profile/edit" component={ ProfileEdit } />
+          <Route
+            exact
+            path="/profile/edit"
+            render={
+              (props) => <ProfileEdit { ...props } />
+            }
+          />
           <Route component={ NotFound } />
         </Switch>
       </Router>
