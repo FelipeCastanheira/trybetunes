@@ -1,6 +1,7 @@
 import React from 'react';
 // import { Redirect } from 'react-router-dom';
 // import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 // import UpdateUser from '../components/UpdateUser';
@@ -101,5 +102,9 @@ class ProfileEdit extends React.Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.string.isRequired,
+};
 
 export default ProfileEdit;
