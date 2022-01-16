@@ -46,11 +46,12 @@ class MusicCard extends React.Component {
   render() {
     const { previewUrl, trackName, trackId } = this.props;
     const { isFavorite, isLoading, exhibition } = this.state;
+    // const semicirc = isFavorite ? 'redsemicirc semicirc' : 'semicirc';
     return (
       <div>
         {exhibition
             && (
-              <>
+              <div id="card-container">
                 <h5>{trackName}</h5>
                 <audio data-testid="audio-component" src={ previewUrl } controls>
                   <track kind="captions" />
@@ -67,7 +68,22 @@ class MusicCard extends React.Component {
                     data-testid={ `checkbox-music-${trackId}` }
                   />
                 </label>
-              </>)}
+                {/* Abaixo estão algumas tentativas de desenhar checkbox
+                  em formatos de coração, apeanas com a finalidade de
+                  treinar as habilidades com o CSS */}
+                {/* <div id="heart-container">
+                  <div id="fst-heart">
+                    <div className={ semicirc } />
+                    <div className={ semicirc } />
+                    <div className={ isFavorite ? 'redtriangle triangle' : 'triangle' } />
+                  </div>
+                  <div id="snd-heart">
+                    <div className={ semicirc } />
+                    <div className={ semicirc } />
+                    <div className={ isFavorite ? 'redtriangle triangle' : 'triangle' } />
+                  </div>
+                </div> */}
+              </div>)}
         {isLoading && <Loading />}
       </div>
     );

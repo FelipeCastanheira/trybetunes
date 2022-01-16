@@ -24,3 +24,84 @@ code {
   display: flex;
   justify-content: center;
 }
+
+/* Abaixo estão algumas tentativas de desenhar checkbox
+  em formatos de coração, apeanas com a finalidade de
+  treinar as habilidades com o CSS */
+/* .semicirc {
+  background-color: #036b52;
+  border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+  height: 20px;
+  width: 20px;
+}
+
+.triangle {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 25px solid #036b52;
+  height: 0;
+  width: 0;
+}
+
+#fst-heart {
+  align-content: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+#snd-heart {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 40px;
+  inset: 0;
+  justify-content: stretch;
+  margin: 3px 0 0 2px;
+  position: absolute;
+  width: 45px;
+}
+
+#snd-heart .semicirc {
+  background-color: #fafafa;
+  height: 17px;
+  width: 18px;
+}
+
+#snd-heart .triangle {
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 22px solid #fafafa;
+}
+
+#heart-container {
+  height: 45px;
+  position: relative;
+  width: 50px;
+}
+
+.redtriangle {
+  border-top-color: red;
+}
+
+.redsemicirc {
+  background-color: red;
+}
+
+#snd-heart .redsemicirc {
+  background-color: red;
+}
+
+#snd-heart .redtriangle {
+  border-top: 22px solid red;
+} */
+
+#card-container {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  margin: 5px auto;
+}
