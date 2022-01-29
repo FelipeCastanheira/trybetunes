@@ -1,11 +1,13 @@
 .album main {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   min-height: 600px;
 }
 
 .album aside img {
   height: 13rem;
+  margin-top: 4rem;
   width: 13rem;
 }
