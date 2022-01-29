@@ -31,7 +31,7 @@ class Search extends React.Component {
     const { singerName } = this.state;
     this.setState({ isLoading: true });
     const data = await searchAlbumsAPI(singerName);
-    const errorAlbum = data.length === 0;
+    const errorAlbum = data.length === 0 && !data;
     this.setState({
       singerName: '',
       showError: errorAlbum,
