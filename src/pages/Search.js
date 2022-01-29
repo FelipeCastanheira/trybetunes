@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import style from './Search.module.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Loading from '../components/Loading';
 
 class Search extends React.Component {
   constructor() {
@@ -28,6 +29,7 @@ class Search extends React.Component {
 
   handleClick = async () => {
     const { singerName } = this.state;
+    this.setState({ isLoading: true });
     const data = await searchAlbumsAPI(singerName);
     const errorAlbum = data.length === 0;
     this.setState({
@@ -35,6 +37,7 @@ class Search extends React.Component {
       showError: errorAlbum,
       artist: singerName,
       results: data,
+      isLoading: false,
     });
   }
 
@@ -45,11 +48,13 @@ class Search extends React.Component {
       artist,
       results,
       showError,
+      isLoading,
     } = this.state;
     return (
       <div className={ style.search } data-testid="page-search">
         <Header nav="search" />
         <section>
+          { isLoading && <Loading /> }
           <form>
             <div className={ style.inputContainer }>
               <input

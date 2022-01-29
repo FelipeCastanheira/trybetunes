@@ -10,7 +10,6 @@
   display: flex;
   justify-content: center;
   margin: 3rem auto;
-  min-width: 50rem;
 }
 
 .search button {
@@ -26,7 +25,7 @@
 .inputContainer {
   height: 2.2rem;
   position: relative;
-  width: 45%;
+  width: 15rem;
 }
 
 .inputContainer input {
@@ -37,7 +36,7 @@
 .inputContainer h3 {
   position: absolute;
   right: 5%;
-  top: 0;
+  top: 12%;
 }
 
 .results {

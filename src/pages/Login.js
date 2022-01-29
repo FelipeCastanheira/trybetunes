@@ -1,5 +1,7 @@
 import React from 'react';
-import NewUser from '../components/NewUser';
+import Loading from '../components/Loading';
+import { Redirect } from 'react-router-dom';
+import { createUser } from '../services/userAPI';
 import trybeTunes from '../img/trybe-tunes.png';
 import style from './Login.module.css';
 
@@ -23,17 +25,27 @@ class Login extends React.Component {
     });
   }
 
+  handleNewUser = async (event) => {
+    event.preventDefault();
+    const { loginName } = this.state;
+    this.setState({ isLoading: true });
+    await createUser({ name: loginName });
+    this.setState({ isLoading: false, redirect: true });
+  }
+
   render() {
     const {
       loginName,
       isButtonDisabled,
       isLoading,
+      redirect,
     } = this.state;
     return (
       <main className={ style.login } data-testid="page-login">
         <header>
           <img src={ trybeTunes } alt="trybe-tunes" />
         </header>
+        {isLoading && <Loading />}
         <form className="login-form">
           <input
             type="text"
@@ -47,12 +59,12 @@ class Login extends React.Component {
             disabled={ isButtonDisabled }
             type="submit"
             data-testid="login-submit-button"
-            onClick={ () => this.setState({ isLoading: true }) }
+            onClick={ this.handleNewUser }
           >
             Entrar
           </button>
         </form>
-        {isLoading && <NewUser person={ loginName } />}
+        {redirect && <Redirect to="/search" />}
       </main>
     );
   }
