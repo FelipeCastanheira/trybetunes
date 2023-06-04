@@ -27,11 +27,13 @@ class Search extends React.Component {
     });
   }
 
-  handleClick = async () => {
+  handleClick = async (e) => {
+    e.preventDefault();
     const { singerName } = this.state;
     this.setState({ isLoading: true });
     const data = await searchAlbumsAPI(singerName);
     const errorAlbum = data.length === 0 && !data;
+    console.log(errorAlbum);
     this.setState({
       singerName: '',
       showError: errorAlbum,
@@ -55,7 +57,7 @@ class Search extends React.Component {
         <Header nav="search" />
         <section>
           { isLoading && <Loading /> }
-          <form>
+          <form onSubmit={ this.handleClick }>
             <div className={ style.inputContainer }>
               <input
                 type="text"
@@ -70,8 +72,7 @@ class Search extends React.Component {
             <button
               disabled={ isButtonDisabled }
               data-testid="search-artist-button"
-              type="button"
-              onClick={ this.handleClick }
+              type="submit"
             >
               Procurar
             </button>
